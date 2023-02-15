@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: prometheus-virtualservice 
+spec:
+  hosts:
+  - "prometheus.192.168.87.3.nip.io"
+  gateways:
+  - prometheus-gateway
+  http:
+  - route:
+    - destination:
+        host: kube-prometheus-stack-prometheus
